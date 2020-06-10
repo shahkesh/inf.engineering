@@ -7,6 +7,9 @@
                 <h1 class="title">
                     {{ env('APP_TITLE', 'Sample application') }}
                 </h1>
+                <h2 class="subtitle">
+                    Let's do this!
+                </h2>
             </div>
         </div>
     </section>

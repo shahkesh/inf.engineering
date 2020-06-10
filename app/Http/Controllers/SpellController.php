@@ -24,9 +24,9 @@ class SpellController extends Controller
      */
     public function index()
     {
-        $spell = Spell::all()->load('kind');
+        $spells = Spell::all()->load('kind');
 
-        return view('spell.index', compact('spell'));
+        return view('spell.index', compact('spells'));
     }
 
     /**
@@ -128,7 +128,7 @@ class SpellController extends Controller
             'q' => 'required'
         ])['q'];
 
-        return Invention::query()
+        return Spell::query()
             ->where('name', 'LIKE', "%{$search}%")
             ->orWhere('description', 'LIKE', "%{$search}%")
             ->orWhere('quote', 'LIKE', "%{$search}%")
