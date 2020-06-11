@@ -23,8 +23,9 @@ window.Vue = vue;
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('query-message', require('./components/base/QueryMessage.vue').default);
 Vue.component('search-spell', require('./components/SearchComponent.vue').default);
-Vue.component('result-list', require('./components/ResultListComponent.vue').default);
+
 Vue.component('list-spells', require('./components/ListSpellsComponent.vue').default);
+Vue.component('list-kinds', require('./components/ListKindsComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
