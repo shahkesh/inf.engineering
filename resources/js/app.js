@@ -19,10 +19,16 @@ window.Vue = vue;
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('query-message', require('./components/base/QueryMessage.vue').default);
+
+//unsere
 Vue.component('search-spell', require('./components/SearchComponent.vue').default);
+
+Vue.component('create-spell', require('./components/CreateSpellComponent.vue').default);
+Vue.component('create-kind', require('./components/CreateKindComponent.vue').default);
+
+Vue.component('edit-spell', require('./components/EditSpellComponent.vue').default);
+Vue.component('edit-spells', require('./components/EditSpell.vue').default);
 
 Vue.component('list-spells', require('./components/ListSpellsComponent.vue').default);
 Vue.component('list-kinds', require('./components/ListKindsComponent.vue').default);

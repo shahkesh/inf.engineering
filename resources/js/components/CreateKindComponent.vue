@@ -4,40 +4,23 @@
             <div class="content">
 
                 <div class="field">
-                    <label class="label">Name:</label>
+                    <label class="label">Kind Name:</label>
                     <div class="control">
-                        <input class="input" type="text" v-model="form.name" placeholder="Name for Spell">
-                    </div>
-                </div>
-
-                <div class="field">
-                    <label class="label">Quote:</label>
-                    <div class="control">
-                        <textarea class="input" type="text" v-model="form.quote" placeholder="Quote">
-
-                        </textarea>
+                        <input class="input" type="text" v-model="form.name" placeholder="Name for Kind">
                     </div>
                 </div>
 
                 <div class="field">
                     <label class="label">Description:</label>
                     <div class="control">
-                        <textarea class="input" type="text" v-model="form.description" placeholder="Description">
+                        <textarea class="input" type="text" v-model="form.description" placeholder="Description of Kind">
 
                         </textarea>
                     </div>
                 </div>
 
-                <div class="field">
-                    <label class="label">Kind Id:</label>
-                    <div class="control">
-                        <input class="input" type="text" v-model="form.kind_id" placeholder="Kind">
-                    </div>
-                </div>
-
-
                 <div class="control">
-                        <button type="submit" @click="create" class="button is-primary">Submit</button>
+                    <button type="submit" @click="createKind" class="button is-primary">Submit</button>
                 </div>
 
                 <div v-if="form.error === 1" >
@@ -66,13 +49,11 @@
 <script>
     let form = new Form({
         'name': '',
-        'quote': '',
         'description': '',
-        'kind_id': '',
         'error': 0,
     });
     export default {
-        name: "CreateSpellComponent",
+        name: "CreateKindComponent",
 
         data() {
             return {
@@ -81,8 +62,8 @@
         },
 
         methods: {
-            create() {
-                form.post('/spell')
+            createKind() {
+                form.post('/kind')
                     .then(response => {
                         this.form.error = 2,
                             console.log(response)
@@ -92,11 +73,9 @@
                             console.log(error)
                     }),
 
-                this.name= '';
-                this.quote= '';
+                    this.name= '';
                 this.description= '';
-                this.kind_id= '';
-                }
+            }
         }
     }
 </script>
