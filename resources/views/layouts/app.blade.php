@@ -141,9 +141,9 @@
         @yield('content')
     </div>
 
-    <footer class="footer">
+    <footer class="footer" style="background-color: #08151f; color:#00b89c;">
         <div class="content has-text-centered">
-            <small>Some sort of text...</small>
+            <small>© 2020 B4 Magic Almanac</small>
         </div>
     </footer>
 </div>

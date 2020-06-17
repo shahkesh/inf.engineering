@@ -97,5 +97,7 @@
     }
 </script>
 <style scoped>
-
+    .label{
+        color: #00b89c;
+    }
 </style>

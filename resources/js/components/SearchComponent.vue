@@ -4,7 +4,7 @@
             <form @submit.prevent="submit">
                 <nav class="level">
                     <div class="level-left">
-                        <div class="level-item">Search for spell:</div>
+                        <div class="level-item" style="color: #00b89c; font-size: 20px;"><b>Search for spell:</b></div>
                         <div class="level-item">
                             <div class="field has-addons">
                                 <div class="control">
@@ -23,8 +23,8 @@
             </form>
         </div>
         <div class="block">
-            <div class="content">Results:</div>
-            <div v-for="result in results" class="columns">
+            <div class="content"  style="color: #00b89c; font-size: 20px;"><b>Results:</b></div>
+            <div v-for="result in results" class="columns" id="resultlist">
                 <div class="column">
                     <p class="content" v-text="result.name"></p>
                 </div>
@@ -75,5 +75,8 @@
 </script>
 
 <style scoped>
-
+    #resultlist {
+        background-color: rgba(0, 0, 0, 0.5);
+        color:white;
+    }
 </style>

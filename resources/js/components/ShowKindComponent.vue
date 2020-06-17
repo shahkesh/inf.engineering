@@ -12,7 +12,7 @@
             <tbody>
             <tr>
                 <td>{{kind.id}}</td>
-                <td  @click="follow(kind)"><strong>{{kind.name}}</strong></td>
+                <td  @click="follow(kind)" style="color:#00b89c">{{kind.name}}</td>
                 <td>{{kind.description}}</td>
                 <td>{{kind.slug}}</td>
             </tr>
@@ -54,5 +54,11 @@
 </script>
 
 <style scoped>
-
+    .table {
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+    }
+    .table thead th {
+        color: #00b89c;
+    }
 </style>

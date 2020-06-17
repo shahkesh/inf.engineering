@@ -10,8 +10,8 @@
             </tr>
             </thead>
             <tbody>
-            <tr  v-for="result in results" :key="result.id" @dblclick="showSpell(result)">
-                <td>{{result.name}}</td>
+            <tr  v-for="result in results" :key="result.id">
+                <td  @click="showSpell(result)" style="color:#00b89c">{{result.name}}</td>
                 <td>{{result.kind.name}}</td>
                 <td>{{result.quote}}</td>
                 <td>{{result.description}}</td>
