@@ -90,6 +90,9 @@
                         if (spellElement == response.data[idx].slug){
                             form.slug = response.data[idx].slug;
                             form.kind_id = response.data[idx].kind_id;
+                            form.name = response.data[idx].name;
+                            form.description = response.data[idx].description;
+                            form.quote = response.data[idx].quote;
                             console.log(response.data[idx].slug);
                             console.log(response.data[idx].kind_id);
                         }

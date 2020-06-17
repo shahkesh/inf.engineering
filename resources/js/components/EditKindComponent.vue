@@ -72,6 +72,8 @@
 
                         if (kindElement == response.data[idx].slug){
                             form.slug = response.data[idx].slug;
+                            form.name = response.data[idx].name;
+                            form.description = response.data[idx].description;
                             console.log(response.data[idx]);
                         }
                     }
