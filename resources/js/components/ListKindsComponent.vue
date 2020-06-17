@@ -31,9 +31,24 @@
         mounted() {
             axios.get('/list/kind')
                 .then(response => {
-                    this.results = response.data})
+                    this.results = response.data.sort(this.compare)})
                 .catch(error =>
                 {console.log(error.data, error.status)});
+        },
+
+        methods:{
+            compare(a,b){
+
+                const param1 = a.name.toLowerCase();
+                const param2 = b.name.toLowerCase();
+                let comparison = 0;
+                if(param1 > param2){
+                    comparison = 1;
+                } else if(param1<param2){
+                    comparison = -1;
+                }
+                return comparison;
+            },
         }
     }
 </script>
