@@ -13,7 +13,7 @@
             <tbody>
             <tr>
                 <td>{{spell.id}}</td>
-                <td>{{spell.name}}</td>
+                <td  @click="follow(spell)" ><strong>{{spell.name}}</strong></td>
                 <td>{{spell.kind.name}}</td>
                 <td>{{spell.description}}</td>
                 <td>{{spell.slug}}</td>
@@ -46,6 +46,11 @@
                 })
                 .catch(error => {
                     console.log(error, error.status)});
+        },
+        methods:{
+            follow(spell){
+                window.location.href = '/spell/' + spell.slug +'/edit/';
+            }
         }
     }
 </script>

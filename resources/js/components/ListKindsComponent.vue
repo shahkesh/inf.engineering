@@ -11,7 +11,7 @@
                             <tbody>
                             <tr v-for="kind in results" @dblclick="showKind(kind)">
                                 <td>{{kind.id}}</td>
-                            <td><b>{{kind.name}}</b></td>
+                                <td>{{kind.name}}</td>
                                 <td>{{kind.description}}</td>
                             </tr>
                             </tbody>

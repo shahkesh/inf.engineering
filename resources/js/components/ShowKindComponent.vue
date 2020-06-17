@@ -12,7 +12,7 @@
             <tbody>
             <tr>
                 <td>{{kind.id}}</td>
-                <td>{{kind.name}}</td>
+                <td  @click="follow(kind)"><strong>{{kind.name}}</strong></td>
                 <td>{{kind.description}}</td>
                 <td>{{kind.slug}}</td>
             </tr>
@@ -44,6 +44,11 @@
                 })
                 .catch(error => {
                     console.log(error, error.status)});
+        },
+        methods:{
+            follow(kind){
+                window.location.href = '/kind/' + kind.slug +'/edit/';
+            }
         }
     }
 </script>

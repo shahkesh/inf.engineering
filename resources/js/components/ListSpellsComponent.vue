@@ -69,7 +69,6 @@
             showSpell(spell){
                 window.location.href = '/spell/' + spell.slug;
             }
-
         }
     }
 

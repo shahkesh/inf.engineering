@@ -28,9 +28,9 @@ Vue.component('search-spell', require('./components/SearchComponent.vue').defaul
 
 Vue.component('create-spell', require('./components/CreateSpellComponent.vue').default);
 Vue.component('create-kind', require('./components/CreateKindComponent.vue').default);
-/*
+
 Vue.component('edit-spell', require('./components/EditSpellComponent.vue').default);
-Vue.component('edit-kind', require('./components/EditKindComponent.vue').default);*/
+Vue.component('edit-kind', require('./components/EditKindComponent.vue').default);
 
 Vue.component('list-spells', require('./components/ListSpellsComponent.vue').default);
 Vue.component('list-kinds', require('./components/ListKindsComponent.vue').default);
