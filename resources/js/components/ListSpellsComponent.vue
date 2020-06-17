@@ -1,6 +1,6 @@
 <template>
-    <div class="box">
-        <table  class="table is-striped is-fullwidth">
+    <div class="container">
+        <table  class="table">
             <thead>
             <tr>
                 <th>Name</th>
@@ -76,5 +76,11 @@
 </script>
 
 <style scoped>
-
+    .table {
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+    }
+    .table thead th {
+        color: #00b89c;
+    }
 </style>

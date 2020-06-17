@@ -11718,7 +11718,7 @@ label.panel-block:hover {
 }
 
 .main {
-  background: #F7F7F7;
+  background: #F7F7F7 url(/images/castle.png?236ad75f08271e90efb5b331f082da83) no-repeat fixed center;
 }
 
 .is-fullheight.columns {
