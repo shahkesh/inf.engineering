@@ -31,9 +31,28 @@
                     </div>
                 </div>
 
+
                 <div class="control">
-                        <button type="submit" @click="submit" class="button is-primary">Submit</button>
+                        <button type="submit" @click="create" class="button is-primary">Submit</button>
                 </div>
+
+                <div v-if="form.error === 1" >
+                    <div class="message is-danger">
+                        <div class="message-body">
+                            Eingegebenes schon vorhanden, Änderung nötig.
+                        </div>
+                    </div>
+                </div>
+                <div v-if="form.error === 2" >
+                    <div class="message is-success">
+                        <div class="message-body">
+                            Wurde gespeichert!
+                        </div>
+                    </div>
+                </div>
+
+
+
 
             </div>
         </div>
@@ -45,7 +64,8 @@
         'name': '',
         'quote': '',
         'description': '',
-        'kind_id': 0
+        'kind_id': '',
+        'error': 0,
     });
     export default {
         props: ['title'],
@@ -53,34 +73,27 @@
 
         data() {
             return {
-                form: form,
+                form: form
             }
         },
 
         methods: {
-            submit() {
-                let name = this.name;
-                let quote = this.quote;
-                let description = this.description;
-                let kind_id = this.kind_id;
-                axios.post('/spell', {
-                    name,
-                    quote,
-                    description,
-                    kind_id
-                })
+            create() {
+                form.post('/spell')
                     .then(response => {
-                        console.log(response)
+                        this.form.error = 2,
+                            console.log(response)
                     })
                     .catch(error => {
-                        console.log(error);
-                    });
+                        this.form.error = 1,
+                            console.log(error)
+                    }),
 
                 this.name= '';
                 this.quote= '';
                 this.description= '';
-                this.kind_id= 0;
-                },
+                this.kind_id= '';
+                }
         }
     }
 </script>
