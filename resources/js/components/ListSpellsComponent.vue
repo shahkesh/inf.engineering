@@ -10,7 +10,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr  v-for="result in results" :key="result.id" >
+            <tr  v-for="result in results" :key="result.id" @dblclick="showSpell(result)">
                 <td>{{result.name}}</td>
                 <td>{{result.kind.name}}</td>
                 <td>{{result.quote}}</td>
@@ -65,6 +65,9 @@
                 }).catch(error => {
                     console.log(error);
                 });
+            },
+            showSpell(spell){
+                window.location.href = '/spell/' + spell.slug;
             }
 
         }

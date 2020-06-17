@@ -9,9 +9,9 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr v-for="kind in results ">
+                            <tr v-for="kind in results" @dblclick="showKind(kind)">
                                 <td>{{kind.id}}</td>
-                                <td>{{kind.name}}</td>
+                            <td><b>{{kind.name}}</b></td>
                                 <td>{{kind.description}}</td>
                             </tr>
                             </tbody>
@@ -49,6 +49,9 @@
                 }
                 return comparison;
             },
+            showKind(kind){
+                window.location.href = '/kind/' + kind.slug;
+            }
         }
     }
 </script>
