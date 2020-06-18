@@ -28,7 +28,7 @@
     export default {
         data() {
             return {
-                spell: null
+                spell:[]
             }
         },
 
@@ -56,11 +56,5 @@
 </script>
 
 <style scoped>
-    .table {
-        background-color: rgba(0, 0, 0, 0.5);
-        color: white;
-    }
-    .table thead th {
-        color: #00b89c;
-    }
+
 </style>

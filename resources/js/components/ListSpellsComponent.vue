@@ -1,23 +1,23 @@
 <template>
-    <div class="container">
-        <table  class="table">
+    <div  class="container">
+        <table v-if="entries" class="table">
             <thead>
             <tr>
                 <th>Name</th>
                 <th>Kind</th>
-                <th>Quote</th>
-                <th>Description</th>
+
             </tr>
             </thead>
             <tbody>
             <tr  v-for="result in results" :key="result.id">
                 <td  @click="showSpell(result)" style="color:#00b89c">{{result.name}}</td>
                 <td>{{result.kind.name}}</td>
-                <td>{{result.quote}}</td>
-                <td>{{result.description}}</td>
+
             </tr>
             </tbody>
         </table>
+        <div v-if="entries && !search" class="text">No entries.</div>
+
     </div>
 </template>
 
@@ -29,20 +29,34 @@
 
         data() {
             return {
-                results: []
+                results: [],
+                search: true
 
             }
         },
+
+
         created() {
             axios.get('/list/spell').then(response =>{
                 this.results=response.data.sort(this.compare);
             }).catch(error => {
                 console.log(error);
             });
+            this.search = this.entries();
+
+        },
+        computed:{
+            entries(){
+
+                return !!this.results.length;
+            },
+
         },
         mounted(){
             this.$options.interval = setInterval(this.updateList, 1000);
         },
+
+
 
         methods:{
 
@@ -69,17 +83,12 @@
             showSpell(spell){
                 window.location.href = '/spell/' + spell.slug;
             }
+
         }
     }
 
 </script>
 
 <style scoped>
-    .table {
-        background-color: rgba(0, 0, 0, 0.5);
-        color: white;
-    }
-    .table thead th {
-        color: #00b89c;
-    }
+
 </style>

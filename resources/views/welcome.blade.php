@@ -7,8 +7,9 @@
                 <h1 class="title">
                     {{ env('APP_TITLE', 'Sample application') }}
                 </h1>
+                <br/>
                 <h2 class="subtitle">
-                    Let's do this!
+                   Useful spells for all occasions
                 </h2>
             </div>
         </div>

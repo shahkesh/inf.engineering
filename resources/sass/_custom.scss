@@ -33,7 +33,7 @@
     .card-header {
         .card-header-title {
             font-size: 1.2rem;
-            font-weight: lighter;
+            font-weight: bold;
         }
     }
 }
@@ -44,4 +44,39 @@
 
 .hero.is-fullheight-with-navbar{
     min-height: calc(100vh - 6.75rem);
+}
+
+.table {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+.table thead th {
+    color: #00b89c;
+}
+
+.title{
+    color: white;
+    font-size: 4rem;
+}
+
+.text{
+    color:white;
+    font-size:1.2rem;
+}
+
+.subtitle{
+    color: white;
+    font-size: 2rem;
+}
+
+.title-pages{
+    color:white;
+    font-size: 24px;
+    text-decoration:
+        underline;
+    padding: 0 0 2em 0
+}
+
+.help{
+    color:lightgray;
 }

@@ -1,46 +1,46 @@
 <template>
     <div class="container">
-        <div class="block">
-            <form @submit.prevent="submit">
-                <nav class="level">
-                    <div class="level-left">
-                        <div class="level-item" style="color: #00b89c; font-size: 20px;"><b>Search for spell:</b></div>
-                        <div class="level-item">
-                            <div class="field has-addons">
-                                <div class="control">
-                                    <input id="title"
-                                           v-model="form.spellname"
-                                           class="input"
-                                           type="text" autofocus>
-                                </div>
-                                <div class="control">
-                                    <button type="submit" class="button" v-text=" 'Search'"/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
-            </form>
-        </div>
-        <div class="block">
-            <div class="content"  style="color: #00b89c; font-size: 20px;"><b>Results:</b></div>
-            <div v-for="result in results" class="columns" id="resultlist">
-                <div class="column">
-                    <p class="content" v-text="result.name"></p>
+        <form @submit.prevent="submit">
+            <div class="text">I am looking for:</div>
+            <div class="field has-addons">
+
+                <div class="control">
+                    <input id="title"
+                           v-model="form.spellname"
+                           class="input"
+                           type="text" autofocus>
                 </div>
-                <div class="column">
-                    <p class="content" v-text="result.kind.name"></p>
-                </div>
-                <div class="column">
-                    <p class="content" v-text="result.quote"></p>
-                </div>
-                <div class="column">
-                    <p class="content" v-text="result.description"></p>
+                <div class="control">
+                    <button type="submit" class="button" v-text=" 'Search'"/>
                 </div>
             </div>
+            <p class="help">Search for spellname, kind, quote or description.</p>
+        </form>
+
+        <div v-if="entries" class="content" style="color: #00b89c; font-size: 20px;"><b>Results:</b></div>
+        <table v-if="entries" class="table">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Kind</th>
+                <th>Quote</th>
+                <th>Description</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="result in results" :key="result.id">
+                <td  @click="showSpell(result)" style="color:#00b89c">{{result.name}}</td>
+                <td @click="showKind(result)" style="color:#00b89c">{{result.kind.name}}</td>
+                <td>{{result.quote}}</td>
+                <td>{{result.description}}</td>
+
+            </tr>
+            </tbody>
+        </table>
+               <div v-if="!entries && !search" class="text" ><b>No results found</b></div>
         </div>
-    </div>
-</template>
+   </template>
 
 
 <script>
@@ -57,26 +57,37 @@
             return {
                 form: form,
                 results: [],
+                search: true
 
             }
         },
+        computed:{
+            entries(){
+               return !!this.results.length;
+            }
+                   },
 
         methods: {
             submit() {
-        axios.post('/search/spell',{q:this.form.spellname}).then(response =>{
-            this.results=response.data;
-            this.res='Results:'
-        }).catch(error => {
-            console.log(error);
-        });
+                axios.post('/search/spell', {q: this.form.spellname}).then(response => {
+                    this.results = response.data;
+                    this.res = 'Results:'
+                }).catch(error => {
+                    console.log(error);
+                });
+                this.search = this.entries();
+                           },
+            showSpell(spell){
+                window.location.href = '/spell/' + spell.slug;
+            },
+            showKind(kind) {
+                window.location.href = '/kind/' + kind.kind.slug;
             }
-        }
+
+            }
     }
 </script>
 
 <style scoped>
-    #resultlist {
-        background-color: rgba(0, 0, 0, 0.5);
-        color:white;
-    }
+
 </style>
