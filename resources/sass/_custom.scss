@@ -80,3 +80,13 @@
 .help{
     color:lightgray;
 }
+
+.customTD {
+    color:#00b89c;
+}
+
+.customTD:hover{
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
+}

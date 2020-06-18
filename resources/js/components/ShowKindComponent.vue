@@ -12,7 +12,7 @@
             <tbody>
             <tr>
                 <td>{{kind.id}}</td>
-                <td  @click="follow(kind)" style="color:#00b89c">{{kind.name}}</td>
+                <td class="customTD" @click="follow(kind)">{{kind.name}}</td>
                 <td>{{kind.description}}</td>
                 <td>{{kind.slug}}</td>
             </tr>

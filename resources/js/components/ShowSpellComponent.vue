@@ -13,7 +13,7 @@
             <tbody>
             <tr>
                 <td>{{spell.id}}</td>
-                <td  @click="follow(spell)" style="color:#00b89c">{{spell.name}}</td>
+                <td  @click="follow(spell)" class="customTD">{{spell.name}}</td>
                 <td>{{spell.kind.name}}</td>
                 <td>{{spell.description}}</td>
                 <td>{{spell.slug}}</td>

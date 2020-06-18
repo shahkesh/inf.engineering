@@ -11,7 +11,7 @@
             <tbody>
             <tr v-for="kind in results">
                 <td>{{kind.id}}</td>
-                <td @click="showKind(kind)" style="color:#00b89c">{{kind.name}}</td>
+                <td @click="showKind(kind)" class="customTD">{{kind.name}}</td>
 
             </tr>
             </tbody>
