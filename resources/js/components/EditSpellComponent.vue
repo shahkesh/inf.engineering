@@ -43,6 +43,10 @@
                 <div class="control">
                     <button type="submit" @click="editSpell" class="button is-primary">Submit</button>
                 </div>
+                <br/>
+                <div class="control">
+                    <button type="submit" @click="deleteSpell" class="button is-primary">Deletion?</button>
+                </div>
 
                 <div v-if="form.error === 1">
                     <div class="message is-danger">
@@ -58,6 +62,20 @@
                         </div>
                     </div>
                 </div>
+                <div v-if="form.errorDelete === 1">
+                    <div class="message is-danger">
+                        <div class="message-body">
+                            Problem beim Löschen!
+                        </div>
+                    </div>
+                </div>
+                <div v-if="form.errorDelete === 2">
+                    <div class="message is-success">
+                        <div class="message-body">
+                            Wurde gelöscht!
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -70,7 +88,8 @@
         'name': '',
         'quote': '',
         'description': '',
-        'error': 0
+        'error': 0,
+        'errorDelete': 0
     });
     export default {
 
@@ -113,6 +132,19 @@
                             console.log(error)
                     })
                 window.setTimeout(window.location.href = '/spell/',5000);
+
+            },
+            deleteSpell() {
+                form.delete('/spell/'+ form.slug)
+                    .then(response => {
+                        this.form.errorDelete = 2,
+                            console.log(response)
+                    })
+                    .catch(error => {
+                        this.form.errorDelete = 1,
+                            console.log(error)
+                    })
+                window.setTimeout(window.location.href = '/spell/',10000);
 
             }
         }
