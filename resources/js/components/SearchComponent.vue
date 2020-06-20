@@ -30,8 +30,8 @@
             </thead>
             <tbody>
             <tr v-for="result in results" :key="result.id">
-                <td  @click="showSpell(result)" style="color:#00b89c">{{result.name}}</td>
-                <td @click="showKind(result)" style="color:#00b89c">{{result.kind.name}}</td>
+                <td  class="customTD" @click="showSpell(result)" >{{result.name}}</td>
+                <td class="customTD" @click="showKind(result)" >{{result.kind.name}}</td>
                 <td>{{result.quote}}</td>
                 <td>{{result.description}}</td>
 

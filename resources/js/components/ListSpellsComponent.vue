@@ -10,14 +10,13 @@
             </thead>
             <tbody>
             <tr  v-for="result in results" :key="result.id">
-                <td class = "customTD" @click="showSpell(result)" >{{result.name}}</td>
+                <td class = "customTD" @click="showSpell(result)">{{result.name}}</td>
                 <td>{{result.kind.name}}</td>
             </tr>
             </tbody>
         </table>
-        <div v-if="entries && !search" class="text">No entries.</div>
-
-    </div>
+        <div v-if="!entries && !search" class="text">No entries.</div>
+     </div>
 </template>
 
 <script>

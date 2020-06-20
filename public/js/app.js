@@ -2149,11 +2149,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var form = new Form({
   'slug': '',
   'name': '',
   'description': '',
-  'error': 0
+  'error': 0,
+  'errorDelete': 0
 });
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2187,6 +2208,16 @@ var form = new Form({
         _this.form.error = 1, console.log(error);
       });
       window.setTimeout(window.location.href = '/kind/', 5000);
+    },
+    deleteKind: function deleteKind() {
+      var _this2 = this;
+
+      form["delete"]('/kind/' + form.slug).then(function (response) {
+        _this2.form.errorDelete = 2, console.log(response);
+      })["catch"](function (error) {
+        _this2.form.errorDelete = 1, console.log(error);
+      });
+      window.setTimeout(window.location.href = '/kind/', 10000);
     }
   }
 });
@@ -2267,13 +2298,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var form = new Form({
   'slug': '',
   'kind_id': '',
   'name': '',
   'quote': '',
   'description': '',
-  'error': 0
+  'error': 0,
+  'errorDelete': 0
 });
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2310,6 +2360,16 @@ var form = new Form({
         _this.form.error = 1, console.log(error);
       });
       window.setTimeout(window.location.href = '/spell/', 5000);
+    },
+    deleteSpell: function deleteSpell() {
+      var _this2 = this;
+
+      form["delete"]('/spell/' + form.slug).then(function (response) {
+        _this2.form.errorDelete = 2, console.log(response);
+      })["catch"](function (error) {
+        _this2.form.errorDelete = 1, console.log(error);
+      });
+      window.setTimeout(window.location.href = '/spell/', 10000);
     }
   }
 });
@@ -2449,7 +2509,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
 //
 //
 //
@@ -21597,9 +21656,27 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
+        _c("br"),
+        _vm._v(" "),
+        _c("div", { staticClass: "control" }, [
+          _c(
+            "button",
+            {
+              staticClass: "button is-primary",
+              attrs: { type: "submit" },
+              on: { click: _vm.deleteKind }
+            },
+            [_vm._v("Deletion?")]
+          )
+        ]),
+        _vm._v(" "),
         _vm.form.error === 1 ? _c("div", [_vm._m(0)]) : _vm._e(),
         _vm._v(" "),
-        _vm.form.error === 2 ? _c("div", [_vm._m(1)]) : _vm._e()
+        _vm.form.error === 2 ? _c("div", [_vm._m(1)]) : _vm._e(),
+        _vm._v(" "),
+        _vm.form.errorDelete === 1 ? _c("div", [_vm._m(2)]) : _vm._e(),
+        _vm._v(" "),
+        _vm.form.error === 2 ? _c("div", [_vm._m(3)]) : _vm._e()
       ])
     ])
   ])
@@ -21625,6 +21702,30 @@ var staticRenderFns = [
       _c("div", { staticClass: "message-body" }, [
         _vm._v(
           "\n                        Wurde geändert!\n                    "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "message is-danger" }, [
+      _c("div", { staticClass: "message-body" }, [
+        _vm._v(
+          "\n                        Probleme beim Löschen!\n                    "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "message is-success" }, [
+      _c("div", { staticClass: "message-body" }, [
+        _vm._v(
+          "\n                        Wurde gelöscht!\n                    "
         )
       ])
     ])
@@ -21812,9 +21913,27 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
+        _c("br"),
+        _vm._v(" "),
+        _c("div", { staticClass: "control" }, [
+          _c(
+            "button",
+            {
+              staticClass: "button is-primary",
+              attrs: { type: "submit" },
+              on: { click: _vm.deleteSpell }
+            },
+            [_vm._v("Deletion?")]
+          )
+        ]),
+        _vm._v(" "),
         _vm.form.error === 1 ? _c("div", [_vm._m(0)]) : _vm._e(),
         _vm._v(" "),
-        _vm.form.error === 2 ? _c("div", [_vm._m(1)]) : _vm._e()
+        _vm.form.error === 2 ? _c("div", [_vm._m(1)]) : _vm._e(),
+        _vm._v(" "),
+        _vm.form.errorDelete === 1 ? _c("div", [_vm._m(2)]) : _vm._e(),
+        _vm._v(" "),
+        _vm.form.errorDelete === 2 ? _c("div", [_vm._m(3)]) : _vm._e()
       ])
     ])
   ])
@@ -21840,6 +21959,30 @@ var staticRenderFns = [
       _c("div", { staticClass: "message-body" }, [
         _vm._v(
           "\n                        Wurde geändert!\n                    "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "message is-danger" }, [
+      _c("div", { staticClass: "message-body" }, [
+        _vm._v(
+          "\n                        Problem beim Löschen!\n                    "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "message is-success" }, [
+      _c("div", { staticClass: "message-body" }, [
+        _vm._v(
+          "\n                        Wurde gelöscht!\n                    "
         )
       ])
     ])
@@ -22008,7 +22151,7 @@ var render = function() {
         ])
       : _vm._e(),
     _vm._v(" "),
-    _vm.entries && !_vm.search
+    !_vm.entries && !_vm.search
       ? _c("div", { staticClass: "text" }, [_vm._v("No entries.")])
       : _vm._e()
   ])
@@ -22124,7 +22267,7 @@ var render = function() {
                 _c(
                   "td",
                   {
-                    staticStyle: { color: "#00b89c" },
+                    staticClass: "customTD",
                     on: {
                       click: function($event) {
                         return _vm.showSpell(result)
@@ -22137,7 +22280,7 @@ var render = function() {
                 _c(
                   "td",
                   {
-                    staticStyle: { color: "#00b89c" },
+                    staticClass: "customTD",
                     on: {
                       click: function($event) {
                         return _vm.showKind(result)
