@@ -8,7 +8,7 @@
                     <input id="title"
                            v-model="form.spellname"
                            class="input"
-                           type="text" autofocus>
+                           type="text" required autofocus>
                 </div>
                 <div class="control">
                     <button type="submit" class="button" v-text=" 'Search'"/>
@@ -17,7 +17,7 @@
             <p class="help">Search for spellname, kind, quote or description.</p>
         </form>
 
-        <div v-if="entries" class="content" style="color: #00b89c; font-size: 20px;"><b>Results:</b></div>
+        <div v-if="search" class="content" style="color: #00b89c; font-size: 20px;"><b>Results:</b><br/></div>
         <table v-if="entries" class="table">
             <thead>
             <tr>
@@ -30,17 +30,18 @@
             </thead>
             <tbody>
             <tr v-for="result in results" :key="result.id">
-                <td  class="customTD" @click="showSpell(result)" >{{result.name}}</td>
-                <td class="customTD" @click="showKind(result)" >{{result.kind.name}}</td>
+                <td class="customTD" @click="showSpell(result)">{{result.name}}</td>
+                <td class="customTD" @click="showKind(result)">{{result.kind.name}}</td>
                 <td>{{result.quote}}</td>
                 <td>{{result.description}}</td>
 
             </tr>
             </tbody>
         </table>
-               <div v-if="!entries && !search" class="text" ><b>No results found</b></div>
-        </div>
-   </template>
+        <div v-if="!entries && search" class="text"><b>No results found</b></div>
+
+    </div>
+</template>
 
 
 <script>
@@ -57,34 +58,40 @@
             return {
                 form: form,
                 results: [],
-                search: true
+                search: false
 
             }
         },
-        computed:{
-            entries(){
-               return !!this.results.length;
+
+        computed: {
+            entries() {
+                return !!this.results.length;
             }
-                   },
+        },
 
         methods: {
+
             submit() {
+
                 axios.post('/search/spell', {q: this.form.spellname}).then(response => {
                     this.results = response.data;
-                    this.res = 'Results:'
                 }).catch(error => {
                     console.log(error);
                 });
-                this.search = this.entries();
-                           },
-            showSpell(spell){
+                this.search = true;
+
+            },
+
+            showSpell(spell) {
                 window.location.href = '/spell/' + spell.slug;
             },
+
             showKind(kind) {
                 window.location.href = '/kind/' + kind.kind.slug;
             }
 
-            }
+        }
+
     }
 </script>
 

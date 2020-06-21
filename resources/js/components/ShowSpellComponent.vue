@@ -14,7 +14,7 @@
             <tr>
                 <td>{{spell.id}}</td>
                 <td  @click="follow(spell)" class="customTD">{{spell.name}}</td>
-                <td>{{spell.kind.name}}</td>
+                <td>{{kindname}}</td>
                 <td>{{spell.description}}</td>
                 <td>{{spell.slug}}</td>
             </tr>
@@ -28,7 +28,8 @@
     export default {
         data() {
             return {
-                spell:[]
+                spell:[],
+                kindname:''
             }
         },
 
@@ -41,6 +42,7 @@
                     for (let idx = 0; idx < response.data.length; idx++) {
                         if (spellElement == response.data[idx].slug){
                             this.spell = response.data[idx];
+                            this.kindname= response.data[idx].kind.name;
                         }
                     }
                 })

@@ -15,7 +15,7 @@
             </tr>
             </tbody>
         </table>
-        <div v-if="!entries && !search" class="text">No entries.</div>
+        <div v-if="!entries" class="text">No entries.</div>
      </div>
 </template>
 
@@ -28,7 +28,6 @@
         data() {
             return {
                 results: [],
-                search: true
 
             }
         },
@@ -40,7 +39,6 @@
             }).catch(error => {
                 console.log(error);
             });
-            this.search = this.entries();
 
         },
         computed:{
@@ -53,8 +51,6 @@
         mounted(){
             this.$options.interval = setInterval(this.updateList, 1000);
         },
-
-
 
         methods:{
 
