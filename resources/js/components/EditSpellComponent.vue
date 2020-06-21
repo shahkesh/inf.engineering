@@ -44,8 +44,8 @@
                     <button type="submit" @click="editSpell" class="button is-primary">Submit</button>
                 </div>
                 <br/>
-                <div class="control">
-                    <button type="submit" @click="deleteSpell" class="button is-primary">Deletion?</button>
+                <div class="control" v-if="form.error !== 2 ">
+                    <button type="submit" @click="deleteSpell" class="button is-primary">Delete?</button>
                 </div>
 
                 <div v-if="form.error === 1">
@@ -131,8 +131,6 @@
                         this.form.error = 1,
                             console.log(error)
                     })
-                window.setTimeout(window.location.href = '/spell/',5000);
-
             },
             deleteSpell() {
                 form.delete('/spell/'+ form.slug)
@@ -144,7 +142,7 @@
                         this.form.errorDelete = 1,
                             console.log(error)
                     })
-                window.setTimeout(window.location.href = '/spell/',10000);
+                window.setTimeout(window.location.href = '/spell/',5000);
 
             }
         }
