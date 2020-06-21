@@ -42,14 +42,14 @@
                 <div v-if="form.error === 1">
                     <div class="message is-danger">
                         <div class="message-body">
-                            Eingegebenes schon vorhanden, Änderung nötig.
+                            Input already exists, please enter new input.
                         </div>
                     </div>
                 </div>
                 <div v-if="form.error === 2">
                     <div class="message is-success">
                         <div class="message-body">
-                            Wurde geändert!
+                            Changes saved!
                         </div>
                     </div>
                 </div>
@@ -57,14 +57,14 @@
                 <div v-if="form.errorDelete === 1">
                     <div class="message is-danger">
                         <div class="message-body">
-                            Probleme beim Löschen!
+                            Error while deleting!
                         </div>
                     </div>
                 </div>
                 <div v-if="form.errorDelete === 2">
                     <div class="message is-success">
                         <div class="message-body">
-                            Wurde gelöscht!
+                            Successfully deleted!
                         </div>
                     </div>
                 </div>
