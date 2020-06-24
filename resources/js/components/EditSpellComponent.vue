@@ -45,7 +45,7 @@
                 </div>
                 <br/>
                 <div class="control" v-if="form.error !== 2 ">
-                    <button type="submit" @click="deleteSpell" class="button is-primary">Delete?</button>
+                    <button type="submit" @click="first" class="button is-primary">Delete?</button>
                 </div>
 
                 <div v-if="form.error === 1">
@@ -144,6 +144,11 @@
                     })
                 window.setTimeout(window.location.href = '/spell/',5000);
 
+            },
+            first() {
+                if (confirm("Are you sure?")) {
+                    this.deleteSpell()
+                }
             }
         }
     }

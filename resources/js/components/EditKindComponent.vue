@@ -36,7 +36,7 @@
                 </div>
                 <br/>
                 <div class="control"  v-if="form.error !== 2 ">
-                    <button type="submit" @click="deleteKind" class="button is-primary">Delete?</button>
+                    <button type="is-hidden" @click="first" class="button is-primary">Delete?</button>
                 </div>
 
                 <div v-if="form.error === 1">
@@ -102,6 +102,7 @@
                     for (let idx = 0; idx < response.data.length; idx++) {
 
                         if (kindElement == response.data[idx].slug) {
+                            form.kind_id = response. data[idx].id;
                             form.slug = response.data[idx].slug;
                             form.name = response.data[idx].name;
                             form.description = response.data[idx].description;
@@ -162,6 +163,11 @@
                         console.log(error, error.status)
                     });
                 window.setTimeout(window.location.href = '/kind/',5000);
+            },
+            first() {
+                if (confirm("Are you sure?")) {
+                    this.deleteKind();
+                }
             }
         }
     }
