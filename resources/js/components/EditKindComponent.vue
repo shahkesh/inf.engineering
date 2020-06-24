@@ -104,6 +104,7 @@
                             form.slug = response.data[idx].slug;
                             form.name = response.data[idx].name;
                             form.description = response.data[idx].description;
+                            form.kind_id = response.data[idx].id;
                             console.log(response.data[idx]);
                         }
                     }
@@ -127,6 +128,7 @@
 
             },
             deleteKind() {
+
                 form.delete('/kind/' + form.slug)
                     .then(response => {
                         this.form.errorDelete = 2,
@@ -140,7 +142,7 @@
                     .then(response => {
                         for (let idx = 0; idx < response.data.length; idx++) {
 
-                            if (form.kind_id == response.data[idx].kind.kind_id){
+                            if (form.kind_id == response.data[idx].kind_id){
                                 form.slug = response.data[idx].slug;
                                 form.kind_id = response.data[idx].kind_id;
                                 form.name = response.data[idx].name;
@@ -148,7 +150,8 @@
                                 form.quote = response.data[idx].quote;
                                 console.log(response.data[idx].slug);
                                 console.log(response.data[idx].name);
-                                form.delete('/kind/' + form.slug)
+
+                                form.delete('/spell/' + form.slug)
                                     .then(response => {
                                         this.form.errorDelete = 2,
                                             console.log(response)
@@ -163,8 +166,7 @@
                     .catch(error => {
                         console.log(error, error.status)
                     });
-                window.setTimeout(window.location.href = '/kind/', 10000);
-
+                window.setTimeout(window.location.href = '/kind/',5000);
             }
         }
     }
