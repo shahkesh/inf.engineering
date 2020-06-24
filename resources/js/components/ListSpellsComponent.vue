@@ -11,7 +11,7 @@
             <tbody>
             <tr  v-for="result in results" :key="result.id">
                 <td class = "customTD" @click="showSpell(result)">{{result.name}}</td>
-                <td>{{result.kind.name}}</td>
+                <td  class = "customTD" @click="showKind(result)">{{result.kind.name}}</td>
             </tr>
             </tbody>
         </table>
@@ -76,6 +76,9 @@
             },
             showSpell(spell){
                 window.location.href = '/spell/' + spell.slug;
+            },
+            showKind(kind) {
+                window.location.href = '/kind/' + kind.kind.slug;
             }
 
         }
