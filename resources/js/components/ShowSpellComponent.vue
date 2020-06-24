@@ -3,21 +3,17 @@
         <table class="table">
             <thead>
             <tr>
-                <th>ID</th>
                 <th>Name</th>
                 <th>Kind</th>
                 <th>Description</th>
-                <th>Slug</th>
             </tr>
             </thead>
             <tbody>
             <tr>
-                <td>{{spell.id}}</td>
                 <td  @click="follow(spell)" class="customTD">{{spell.name}}</td>
-                <td>{{kindname}}</td>
+                <td @click="showKind(spell.kind)" class="customTD">{{kindname}}</td>
                 <td>{{spell.description}}</td>
-                <td>{{spell.slug}}</td>
-            </tr>
+             </tr>
             </tbody>
         </table>
     </div>
@@ -52,6 +48,9 @@
         methods:{
             follow(spell){
                 window.location.href = '/spell/' + spell.slug +'/edit/';
+            },
+            showKind(kind) {
+                window.location.href = '/kind/' + kind.slug;
             }
         }
     }
