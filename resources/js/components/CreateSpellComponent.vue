@@ -31,7 +31,7 @@
                 <div class="field">
                     <label class="label">Kind Id:</label>
                     <div class="control">
-                        <select class="form-control select is-medium" @change="changeKind($event)">
+                        <select v-model="selected" class="form-control select is-medium" @change="changeKind($event)">
                             <option selected disabled>Kinds</option>
                             <option v-for="kind in results" :value="kind.id">{{kind.name}}</option>
                         </select>
@@ -122,6 +122,7 @@
                 this.quote = '';
                 this.description = '';
                 this.kind_id = '';
+                this.selected = '';
             }
         }
     }

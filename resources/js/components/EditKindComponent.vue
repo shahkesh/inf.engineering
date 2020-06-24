@@ -89,7 +89,8 @@
         data() {
             return {
                 form: form,
-                formSpell:form
+                formSpell:form,
+                id_param:''
             }
         },
         created() {
@@ -105,7 +106,7 @@
                             form.name = response.data[idx].name;
                             form.description = response.data[idx].description;
                             form.kind_id = response.data[idx].id;
-                            console.log(response.data[idx]);
+                            this.id_param = form.kind_id;
                         }
                     }
                 })
@@ -137,21 +138,15 @@
                     .catch(error => {
                         this.form.errorDelete = 1,
                             console.log(error)
-                    })
+                    });
+
                 axios.get('/list/spell')
                     .then(response => {
                         for (let idx = 0; idx < response.data.length; idx++) {
 
-                            if (form.kind_id == response.data[idx].kind_id){
-                                form.slug = response.data[idx].slug;
-                                form.kind_id = response.data[idx].kind_id;
-                                form.name = response.data[idx].name;
-                                form.description = response.data[idx].description;
-                                form.quote = response.data[idx].quote;
-                                console.log(response.data[idx].slug);
-                                console.log(response.data[idx].name);
+                            if (this.id_param == response.data[idx].kind_id){
 
-                                form.delete('/spell/' + form.slug)
+                                form.delete('/spell/' + response.data[idx].slug)
                                     .then(response => {
                                         this.form.errorDelete = 2,
                                             console.log(response)

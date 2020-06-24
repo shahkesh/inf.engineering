@@ -3,14 +3,14 @@
         <table v-if="entries" class="table">
             <thead>
             <tr>
-                <th>ID</th>
+
                 <th>Name</th>
 
             </tr>
             </thead>
             <tbody>
             <tr v-for="kind in results">
-                <td>{{kind.id}}</td>
+
                 <td @click="showKind(kind)" class="customTD">{{kind.name}}</td>
 
             </tr>
