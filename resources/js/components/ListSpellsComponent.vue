@@ -1,5 +1,6 @@
 <template>
     <div  class="container">
+        <p class="help" style="margin-bottom: 1rem">Click a spell or kind for details.</p>
         <table v-if="entries" class="table">
             <thead>
             <tr>

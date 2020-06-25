@@ -1,22 +1,19 @@
 <template>
     <div class="container">
+        <p class="help" style="margin-bottom: 1rem">Click on the name to edit this spell, or on the kind for details.</p>
         <table class="table">
             <thead>
             <tr>
-                <th>ID</th>
                 <th>Name</th>
                 <th>Kind</th>
                 <th>Description</th>
-                <th>Slug</th>
             </tr>
             </thead>
             <tbody>
             <tr>
-                <td>{{spell.id}}</td>
                 <td  @click="follow(spell)" class="customTD">{{spell.name}}</td>
                 <td>{{kindname}}</td>
                 <td>{{spell.description}}</td>
-                <td>{{spell.slug}}</td>
             </tr>
             </tbody>
         </table>

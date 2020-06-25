@@ -1,20 +1,17 @@
 <template>
     <div class="container">
+        <p class="help" style="margin-bottom: 1rem">Click on the name to edit this kind.</p>
         <table class="table">
             <thead>
             <tr>
-                <th>ID</th>
                 <th>Name</th>
                 <th>Description</th>
-                <th>Slug</th>
             </tr>
             </thead>
             <tbody>
             <tr>
-                <td>{{kind.id}}</td>
                 <td class="customTD" @click="follow(kind)">{{kind.name}}</td>
                 <td>{{kind.description}}</td>
-                <td>{{kind.slug}}</td>
             </tr>
             </tbody>
         </table>

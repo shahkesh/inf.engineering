@@ -51,7 +51,16 @@
     color: white;
 }
 .table thead th {
-    color: #00b89c;
+    color: darken($primary,5%);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.customTD:hover{
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: underline;
+    color:$primary;
 }
 
 .title{
@@ -79,14 +88,4 @@
 
 .help{
     color:lightgray;
-}
-
-.customTD {
-    color:#00b89c;
-}
-
-.customTD:hover{
-    font-weight: bold;
-    text-decoration: underline;
-    cursor: pointer;
 }
