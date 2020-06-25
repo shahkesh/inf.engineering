@@ -61,7 +61,7 @@
                         </div>
                     </div>
                 </div>
-                <div v-if="form.errorDelete === 2">
+                <div v-if="form.errorDelete === 1">
                     <div class="message is-success">
                         <div class="message-body">
                             Successfully deleted!
@@ -102,13 +102,13 @@
                     for (let idx = 0; idx < response.data.length; idx++) {
 
                         if (kindElement == response.data[idx].slug) {
-                            form.kind_id = response. data[idx].id;
+
                             form.slug = response.data[idx].slug;
                             form.name = response.data[idx].name;
                             form.description = response.data[idx].description;
                             form.kind_id = response.data[idx].id;
                             this.id_param = form.kind_id;
-                        }
+                                                   }
                     }
                 })
                 .catch(error => {
@@ -120,49 +120,55 @@
             editKind() {
                 form.put('/kind/' + form.slug)
                     .then(response => {
-                        this.form.error = 2,
+                        this.form.error = 2;
                             console.log(response)
                     })
                     .catch(error => {
-                        this.form.error = 1,
+                        this.form.error = 1;
                             console.log(error)
                     })
 
             },
+
             deleteKind() {
 
                 form.delete('/kind/' + form.slug)
                     .then(response => {
-                        this.form.errorDelete = 2,
-                            console.log(response)
+                        this.form.errorDelete = 2;
+                            console.log(response);
+                            axios.get('/list/spell')
+                            .then(response => {
+
+                                for (let idx = 0; idx < response.data.length; idx++) {
+
+                                    if (this.id_param == response.data[idx].kind_id){
+
+
+                                        form.delete('/spell/' + response.data[idx].slug)
+                                            .then(response => {
+                                                this.form.errorDelete = 2;
+                                                console.log(response)
+                                            })
+                                            .catch(error => {
+                                                this.form.errorDelete = 1;
+                                                console.log(error)
+                                            })
+                                    }
+                                }
+
+                                window.setTimeout(window.location.href = '/kind/',5000);
+
+                            })
+                            .catch(error => {
+
+                                console.log(error, error.status)
+                            })
                     })
                     .catch(error => {
-                        this.form.errorDelete = 1,
+                        this.form.errorDelete = 1;
                             console.log(error)
                     });
 
-                axios.get('/list/spell')
-                    .then(response => {
-                        for (let idx = 0; idx < response.data.length; idx++) {
-
-                            if (this.id_param == response.data[idx].kind_id){
-
-                                form.delete('/spell/' + response.data[idx].slug)
-                                    .then(response => {
-                                        this.form.errorDelete = 2,
-                                            console.log(response)
-                                    })
-                                    .catch(error => {
-                                        this.form.errorDelete = 1,
-                                        console.log(error)
-                                    })
-                            }
-                        }
-                    })
-                    .catch(error => {
-                        console.log(error, error.status)
-                    });
-                window.setTimeout(window.location.href = '/kind/',5000);
             },
             first() {
                 if (confirm("Are you sure?")) {
