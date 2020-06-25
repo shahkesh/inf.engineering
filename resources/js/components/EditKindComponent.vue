@@ -61,7 +61,7 @@
                         </div>
                     </div>
                 </div>
-                <div v-if="form.errorDelete === 1">
+                <div v-if="form.errorDelete === 2">
                     <div class="message is-success">
                         <div class="message-body">
                             Successfully deleted!
