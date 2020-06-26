@@ -44,7 +44,7 @@
                 <div v-if="form.error === 1">
                     <div class="message is-danger">
                         <div class="message-body">
-                            Eingegebenes schon vorhanden, Änderung nötig.
+                            Input already exists, please enter new input.
                         </div>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                 <div v-if="form.error === 2">
                     <div class="message is-success">
                         <div class="message-body">
-                            Wurde gespeichert!
+                            Saved!
                         </div>
                     </div>
                 </div>

@@ -36,7 +36,7 @@
                 </div>
                 <br/>
                 <div class="control"  v-if="form.error !== 2 ">
-                    <button type="is-hidden" @click="first" class="button is-primary">Delete?</button>
+                    <button @click="first" class="button is-primary">Delete?</button>
                 </div>
 
                 <div v-if="form.error === 1">

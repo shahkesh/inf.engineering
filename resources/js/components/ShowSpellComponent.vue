@@ -12,7 +12,7 @@
             <tbody>
             <tr>
                 <td  @click="follow(spell)" class="customTD">{{spell.name}}</td>
-                <td>{{kindname}}</td>
+                <td class="customTD" @click="showKind(spell)">{{kindname}}</td>
                 <td>{{spell.description}}</td>
             </tr>
             </tbody>
@@ -49,7 +49,11 @@
         methods:{
             follow(spell){
                 window.location.href = '/spell/' + spell.slug +'/edit/';
+            },
+            showKind(kind) {
+                window.location.href = '/kind/' + kind.kind.slug;
             }
+
         }
     }
 </script>
