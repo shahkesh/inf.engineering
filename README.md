@@ -8,7 +8,12 @@ Under "Spells" you have three different options, you can:
  - List all Spells that are currently in the database 
  - Create new Spells which get added to the database
  - Search for Spells after letters or words
+ 
+#### Kinds
+Under “Kinds” you have two different options, you can:
 
+- List all Kinds that are currently in the database
+- Create new Kinds which get added to the database
 
 ## Instruction 
 This was our original instruction:
