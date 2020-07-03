@@ -1,8 +1,23 @@
+# BIC4MagicAlmanac
+
+### Definition
+Magic Almanac is a practical project of the course "Information Engineering". In this project the aim was to consolidate our skills with JavaScript, espically in Vue.js. Our professor gave us a project where the backend was already deployed, we had to write the front-end to list, create and delete magic spells and kinds.
+
+#### Spells
+Under "Spells" you have three different options, you can:
+ - List all Spells that are currently in the database 
+ - Create new Spells which get added to the database
+ - Search for Spells after letters or words
+
+
+## Instruction 
+This was our original instruction:
+
 # BIC4 Project: Magic almanac
 
 ## The magic almanac
 
-This software lists magic spells and kinds belongs to them.
+This software lists magic spells and kinds belonging to them.
 It is possible to search for spells by various parameters.
 
 ## Exercise
@@ -15,7 +30,8 @@ All routes that are needed are implemented:
  * **GET** ```/list/kind``` &rarr; Returns JSON of all kinds
  * **POST** ```/spell``` &rarr; Stores new spells
  * **GET** ```/spell/{slug}``` &rarr; Show spell
- * **PUT** ```/spell/{slug}``` &rarr; Update invention
+ * **PUT** ```/spell/{slug}``` &rarr; Update spell
+ * **DELETE** ```/spell/{slug}``` &rarr; Delete spell
  * **GET** ```/spell/{slug}/edit``` &rarr; Edit spell
  * **GET** ```/search/spell``` &rarr; Search spells
  * **POST** ```/search/spell``` &rarr; Query spells
@@ -24,6 +40,7 @@ All routes that are needed are implemented:
  * **POST** ```/kind``` &rarr; Stores new kinds
  * **GET** ```/kind/{slug}``` &rarr; Show kind
  * **PUT** ```/kind/{slug}``` &rarr; Update kind
+ * **DELETE** ```/kind/{slug}``` &rarr; Delete kind
  * **GET** ```/kind/{slug}/edit``` &rarr; Edit kind
 
 All views can be found in ```/resources/views```.
@@ -32,7 +49,7 @@ All views can be found in ```/resources/views```.
 
 #### VueJS
 
-Implement your [VueJS](https://vue.js) components in the folder ```/resources/views/js/components```.
+Implement your [VueJS](https://vuejs.org) components in the folder ```/resources/views/js/components```.
 Register your components in ```/resources/views/js/app.js``` and use them in the following files:
 
  * ```/resources/views/kind```
